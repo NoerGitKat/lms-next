@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import React from "react";
-import type { RootState } from "@/redux/store";
-import { useSelector, useDispatch } from "react-redux";
-import { decrement, increment } from "@/redux/features/counter/counterSlice";
+import React from 'react';
+import type { RootState } from '@/redux/store';
+import { useSelector, useDispatch } from 'react-redux';
+import { decrement, increment } from '@/redux/features/counter/counterSlice';
 
 export function Counter() {
     const count = useSelector((state: RootState) => state.counter.value);
     const dispatch = useDispatch();
 
     return (
-        <div>
+        <section>
             <div>
                 <button
                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
@@ -28,6 +28,6 @@ export function Counter() {
                     Decrement
                 </button>
             </div>
-        </div>
+        </section>
     );
 }
