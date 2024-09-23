@@ -4,15 +4,15 @@ import { TypedUseSelectorHook, useSelector } from "react-redux";
 import counterReducer from "@/redux/features/counter/counterSlice";
 
 const rootReducer = combineReducers({
-  counter: counterReducer,
+    counter: counterReducer,
 });
 
 export const store = configureStore({
-  reducer: rootReducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: false,
-    }),
+    reducer: rootReducer,
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: false,
+        }),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
