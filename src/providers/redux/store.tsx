@@ -1,7 +1,7 @@
 'use client';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useSelector } from 'react-redux';
-import counterReducer from '@/redux/features/counter/counterSlice';
+import counterReducer from '@/providers/redux/features/counter/counterSlice';
 
 const rootReducer = combineReducers({
     counter: counterReducer,
