@@ -14,7 +14,7 @@ const DesktopMenu = () => {
                     ({ path, label, id, section, icon }) => {
                         return (
                             <Link
-                                key={id}
+                                key={label + id}
                                 href={path}
                                 {...(section && {
                                     onClick: () => onSetPage(path),
