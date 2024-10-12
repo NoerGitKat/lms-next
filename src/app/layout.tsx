@@ -4,6 +4,7 @@ import './globals.css';
 import { ReduxProvider } from '@/providers/redux/provider';
 import { QueryProvider } from '@/providers/react-query/provider';
 import { ThemeProvider } from '@/components/theme';
+import { ClerkProvider } from '@clerk/nextjs';
 
 const geistSans = localFont({
     src: './fonts/GeistVF.woff',
@@ -27,20 +28,22 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
-            <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-            >
-                <ThemeProvider
-                    attribute="class"
-                    defaultTheme="dark"
-                    disableTransitionOnChange
+        <ClerkProvider>
+            <html lang="en" suppressHydrationWarning>
+                <body
+                    className={`${geistSans.variable} ${geistMono.variable} antialiased`}
                 >
-                    <ReduxProvider>
-                        <QueryProvider>{children}</QueryProvider>
-                    </ReduxProvider>
-                </ThemeProvider>
-            </body>
-        </html>
+                    <ThemeProvider
+                        attribute="class"
+                        defaultTheme="dark"
+                        disableTransitionOnChange
+                    >
+                        <ReduxProvider>
+                            <QueryProvider>{children}</QueryProvider>
+                        </ReduxProvider>
+                    </ThemeProvider>
+                </body>
+            </html>
+        </ClerkProvider>
     );
 }
