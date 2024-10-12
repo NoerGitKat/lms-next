@@ -3,6 +3,8 @@ import NavMenu from './menu';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Login } from '@/icons';
+import GlassSheet from '@/components/global/glass-sheet';
+import { MenuIcon } from 'lucide-react';
 
 const LandingNavbar = () => {
     return (
@@ -19,6 +21,19 @@ const LandingNavbar = () => {
                         Login
                     </Button>
                 </Link>
+                <GlassSheet
+                    triggerClass="lg:hidden"
+                    trigger={
+                        <Button
+                            variant="ghost"
+                            className="hover:bg-transparent"
+                        >
+                            <MenuIcon size="30" />
+                        </Button>
+                    }
+                >
+                    <NavMenu orientation="mobile" />
+                </GlassSheet>
             </section>
         </nav>
     );
